@@ -119,7 +119,34 @@ Not used in
 1. subsets with duplicates (E)
 2. string permutations by changing case (M)
 
-### Modified binary search
-### Top K elements
-### K-way merge
-### Topological sort
+### 11. Modified binary search
+In a sorted array / linked list / matrix, are asked to find a certain element
+
+#### questions
+Order-agnostic binary search (E)
+Search in a sorted infinite array(M)
+
+### 12. Top K elements
+- to find the top / smallest / frequent K elements
+- best data structure to keep track of K elements is Heap
+- useful when asked to sort an array to find an exact element
+
+#### questions
+1. Top K numbers (E)
+2. Top K Frequent numbers (M)
+
+
+### 13. K-way merge
+- useful while solving problems when a set of sorted arrays are involved
+- use heap
+- start with inserting first element from each array and then take out the min element and add to the merged list
+#### questions
+1. Merge K sorted list (M)
+2. K pair with largest sums (H)
+
+### 14. Topological sort
+- to find a linear order of elements that have dependencies on each other
+- e.g. item B is dependent on item A
+#### questions
+1. Task scheduling (M)
+2. Minimum height of tree (H)
