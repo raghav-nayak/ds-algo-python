@@ -26,6 +26,9 @@ class DFS:
     def __init__(self) -> None:
         self._marked = defaultdict(bool)
 
+    # Depth First Search
+    # time complexity: O(Vertices X Edges)
+    # total number of max possible edges in the graph : VC2 = V(V-1)/2!
     def dfs(self, graph: Graph, v: int) -> None:
         self._marked[v] = True
         for w in graph.get_adjacent_vertices(v):
