@@ -53,6 +53,22 @@ def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
         last_index -= 1
 
 
+def merge_best_solution_from_leetcode(
+    nums1: list[int], m: int, nums2: list[int], n: int
+) -> None:
+    n1_idx = m - 1
+    n2_idx = n - 1
+    last_idx = m + n - 1
+    while n2_idx >= 0:
+        if n1_idx >= 0 and nums1[n1_idx] > nums2[n2_idx]:
+            nums1[last_idx] = nums1[n1_idx]
+            n1_idx -= 1
+        else:
+            nums1[last_idx] = nums2[n2_idx]
+            n2_idx -= 1
+        last_idx -= 1
+
+
 if __name__ == "__main__":
     nums1 = [1, 2, 3, 0, 0, 0]
     m = 3
@@ -67,12 +83,10 @@ if __name__ == "__main__":
     n = 0
     merge(nums1=nums1, m=m, nums2=nums2, n=n)
     print(f"{nums1=}")
-    
+
     nums1 = [0]
     m = 0
     nums2 = [0]
     n = 0
     merge(nums1=nums1, m=m, nums2=nums2, n=n)
     print(f"{nums1=}")
-    
-
