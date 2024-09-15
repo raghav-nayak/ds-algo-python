@@ -62,11 +62,21 @@ def removeElement(nums: List[int], val: int) -> int:
     return delete_index
 
 
+def removeElement_best_solution_from_leetcode(nums: List[int], val: int) -> int:
+    k = 0
+
+    for i in range(0, len(nums)):
+        if nums[i] != val:
+            nums[k] = nums[i]
+            k = k + 1
+    return k
+
+
 if __name__ == "__main__":
     nums = [3, 2, 2, 3]
     val = 3
-    print(removeElement(nums, val)) # 2
+    print(removeElement(nums, val))  # 2
 
     nums = [0, 1, 2, 2, 3, 0, 4, 2]
     val = 2
-    print(removeElement(nums, val)) # 5
+    print(removeElement(nums, val))  # 5
