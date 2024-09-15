@@ -8,7 +8,8 @@ class DFSPaths:
         self._graph = graph
         self._source = source
         self._marked = defaultdict(bool)
-        self._edge_to = [None] * self._graph.get_vertices()
+        # self._edge_to = [None] * self._graph.get_vertices()
+        self._edge_to = defaultdict(int)
 
         # initialize graph with source
         self._edge_to[source] = source  # pre-processing

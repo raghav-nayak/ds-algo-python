@@ -8,7 +8,6 @@ class BFS:
         self._graph = graph
         self._source = source
         self._marked = defaultdict(bool)
-        # self._marked = [False] * self._graph.get_vertices()
         self._bfs(graph=graph, s=self._source)
 
     def _bfs(self, graph: Graph, s: int) -> None:
@@ -32,6 +31,6 @@ if __name__ == "__main__":
     g.add_edge(5, 4)
     g.add_edge(4, 6)
     g.add_edge(6, 0)
-    
+
     bfs_graph = BFS(graph=g, source=0)
     print(bfs_graph._marked)
