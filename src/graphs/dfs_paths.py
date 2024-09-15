@@ -14,6 +14,8 @@ class DFSPaths:
         self._edge_to[source] = source  # pre-processing
         self._dfs(graph, self._source)
 
+    # using pre-processing, we have reduced the time complexity
+    # from O(VE) to O(E) with extra space required to store the edges
     def _dfs(self, graph: Graph, s: int):
         self._marked[s] = True
         for w in graph.get_adjacent_vertices(s):

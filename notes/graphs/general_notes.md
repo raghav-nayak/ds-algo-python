@@ -1,3 +1,18 @@
+
+Graphs are used to structure the problem
+Algorithms are used to structure the problems
+Algorithms are used to solve the problems.
+
+Different solutions on Graphs
+1. Connectivity - Paths/ relations / connections - e.g. MST -> Polynominal
+2. Cyclicity - detecting cycles - e.g. TSP, dead-lock in resource accessing -> Non-polynominal
+3. Colorability  -> Non-polynominal
+4. Co-planarity  -> Non-polynominal
+
+
+<hr>
+
+
 ## Question: why complete graph has time complexity of O(V^3)
 The time complexity of **O(V³)** for operations on a **complete graph** typically arises when using algorithms that operate on all pairs of vertices, such as the **Floyd-Warshall algorithm** for finding the shortest paths between all pairs of vertices or algorithms that process all pairs of vertices (like some network flow algorithms). Here's why the time complexity is **O(V³)** in these cases:
 
