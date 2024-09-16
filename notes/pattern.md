@@ -38,7 +38,7 @@ In addition, you should have a good grasp on common algorithms such as:
 
 - useful in sorted array / linked list
 - comparing array elements with other elements
-- set of elements from array -> pair / triplet / subarray
+- set of elements from array -> pair / triplet / sub-array
 #### questions
 1. squaring a sorted array (E)
 2. triplet that runs to zero (M)
