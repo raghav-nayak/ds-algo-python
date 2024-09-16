@@ -63,9 +63,37 @@ def remove_duplicates(nums: List[int]) -> int:
     return index_1 + 1
 
 
+def remove_duplicates_best_solution_from_leetcode(nums: List[int]) -> int:
+    # Initialize the current position index.
+    cur = 0
+    # Initialize the variable to keep track of the last unique number processed.
+    last = None
+    # Iterate over each number in the input list.
+    for n in nums:
+        # If the current number is the same as the last unique number, skip it.
+        if n == last:
+            continue
+        # Update the last unique number processed.
+        last = n
+        # Replace the element at the current position with the new unique number.
+        nums[cur] = n
+        # Move to the next position.
+        cur += 1
+    # Return the new length of the array after removing duplicates.
+    return cur
+
+
 if __name__ == "__main__":
     nums = [1, 1, 2]
-    print(f"Number of unique numbers: {remove_duplicates(nums=nums)}") # 2
+    print(f"Number of unique numbers: {remove_duplicates(nums=nums)}")  # 2
+    nums = [1, 1, 2]
+    print(
+        f"Number of unique numbers: {remove_duplicates_best_solution_from_leetcode(nums=nums)}"
+    )  # 2
 
     nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
-    print(f"Number of unique numbers: {remove_duplicates(nums=nums)}") # 5
+    print(f"Number of unique numbers: {remove_duplicates(nums=nums)}")  # 5
+    nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
+    print(
+        f"Number of unique numbers: {remove_duplicates_best_solution_from_leetcode(nums=nums)}"
+    )  # 5
