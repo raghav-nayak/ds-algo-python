@@ -37,7 +37,8 @@ def majority_element(nums: List[int]) -> int:
     return max(nums_map, key=nums_map.get)
 
 
-def majority_element_best_solution_from_leetcode( nums: List[int]) -> int:
+# could not understand this flow
+def majority_element_best_solution_from_leetcode(nums: List[int]) -> int:
     curr_elem = nums[0]
     curr_len = 1
     idx = 1
@@ -59,16 +60,16 @@ if __name__ == "__main__":
     nums = [3, 2, 3]
     print(majority_element(nums))
 
-    nums = [2, 2, 1, 1, 1, 2, 2]
-    print(majority_element(nums))
-
-    nums = [2, 2, 2, 1, 1, 1]
-    print(majority_element_best_solution_from_leetcode(nums))
-
     nums = [3, 2, 3]
     print(majority_element_best_solution_from_leetcode(nums))
 
     nums = [2, 2, 1, 1, 1, 2, 2]
+    print(majority_element(nums))
+
+    nums = [2, 2, 1, 1, 1, 2, 2]
+    print(majority_element_best_solution_from_leetcode(nums))
+
+    nums = [2, 2, 2, 1, 1, 1]
     print(majority_element_best_solution_from_leetcode(nums))
 
     nums = [2, 2, 2, 1, 1, 1]
