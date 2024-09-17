@@ -75,7 +75,7 @@ def min_subarray_len(target: int, nums: List[int]) -> int:
     return min_elements
 
 
-# chatgpt approach and best approach too
+# chatgpt approach and best approach in leetcode
 def min_subarray_len_chatgpt(target: int, nums: List[int]) -> int:
     if not nums or target < 1:
         return 0
