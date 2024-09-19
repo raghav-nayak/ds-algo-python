@@ -33,10 +33,10 @@
 # 1 <= prices.length <= 3 * 104
 # 0 <= prices[i] <= 104
 
-# from collections import List
+from typing import List
 
 
-def max_profit(prices: list) -> int:
+def max_profit(prices: List[int]) -> int:
     max_profit = 0
     for day in range(1, len(prices)):
         if prices[day] > prices[day - 1]:
