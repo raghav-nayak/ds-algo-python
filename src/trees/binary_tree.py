@@ -1,5 +1,4 @@
 from collections import deque
-from typing import List
 
 
 class BNode:
@@ -42,72 +41,16 @@ class BinaryTree:
     def get_root(self) -> BNode:
         return self.root
 
-    def level_order_traversal(self) -> List[int]:
-        result = list()
-        if self.size == 0:
-            return result
+    def get_size(self) -> int:
+        return self.size
 
-        result.append(self.root)
-        if self.size == 1:
-            return result
 
-        result = list()
-        queue = deque()
-        queue.append(self.root)
-        while len(queue) > 0:
-            temp_bnode: BNode = queue.popleft()
-            result.append(temp_bnode.data)
-            if temp_bnode.left:
-                queue.append(temp_bnode.left)
-            if temp_bnode.right:
-                queue.append(temp_bnode.right)
-        return result
-
-    def _pre_order(self, bnode: BNode, result: list):
-        if bnode:
-            result.append(bnode.data)
-            self._pre_order(bnode=bnode.left, result=result)
-            self._pre_order(bnode=bnode.right, result=result)
-
-    def pre_order_traversal(self):
-        result = list()
-        self._pre_order(bnode=self.root, result=result)
-        return result
-
-    def _in_order(self, bnode: BNode, result: list):
-        if bnode:
-            self._in_order(bnode=bnode.left, result=result)
-            result.append(bnode.data)
-            self._in_order(bnode=bnode.right, result=result)
-
-    def in_order_traversal(self):
-        result = list()
-        self._in_order(bnode=self.root, result=result)
-        return result
-
-    def _post_order(self, bnode: BNode, result: list):
-        if bnode:
-            self._post_order(bnode=bnode.left, result=result)
-            self._post_order(bnode=bnode.right, result=result)
-            result.append(bnode.data)
-
-    def post_order_traversal(self):
-        result = list()
-        self._post_order(bnode=self.root, result=result)
-        return result
+def create_binary_tree(limit: int) -> BinaryTree:
+    binary_tree = BinaryTree()
+    for data in range(limit):
+        binary_tree.insert(data=data)
+    return binary_tree
 
 
 if __name__ == "__main__":
-    binary_tree = BinaryTree()
-    binary_tree.insert(data="1")
-    binary_tree.insert(data="2")
-    binary_tree.insert(data="3")
-    binary_tree.insert(data="4")
-    binary_tree.insert(data="5")
-    binary_tree.insert(data="6")
-    binary_tree.insert(data="7")
-
-    print(f"level order traversal : {binary_tree.level_order_traversal()}")
-    print(f"pre-order traversal : {binary_tree.pre_order_traversal()}")
-    print(f"in-order traversal : {binary_tree.in_order_traversal()}")
-    print(f"in-order traversal : {binary_tree.post_order_traversal()}")
+    binary_tree = create_binary_tree(limit=7)
