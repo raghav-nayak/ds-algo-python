@@ -23,19 +23,18 @@
 
 
 def two_sum(nums: list[int], target: int) -> list[int]:
-
-    complement_map = {}
+    complement_map = dict()
     for idx, num in enumerate(nums):
         complement = target - num
         if complement in complement_map:
             return [complement_map[complement], idx]
         complement_map[num] = idx
 
-    return []
+    return list()
 
 
 if __name__ == "__main__":
-    print(two_sum(nums=[2, 7, 11, 15], target=9)) # [0,1]
-    print(two_sum(nums=[3, 2, 4], target=6)) # [1,2]
-    print(two_sum(nums=[3, 3], target=6)) # [0,1]
-    print(two_sum(nums=[9, 4, 3], target=2)) # []
+    print(two_sum(nums=[2, 7, 11, 15], target=9))  # [0,1]
+    print(two_sum(nums=[3, 2, 4], target=6))  # [1,2]
+    print(two_sum(nums=[3, 3], target=6))  # [0,1]
+    print(two_sum(nums=[9, 4, 3], target=2))  # []

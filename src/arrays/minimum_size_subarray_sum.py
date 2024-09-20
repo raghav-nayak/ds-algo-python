@@ -104,15 +104,15 @@ def min_subarray_len_chatgpt(target: int, nums: List[int]) -> int:
 if __name__ == "__main__":
     target = 7
     nums = [2, 3, 1, 2, 4, 3]
-    # print(f"{min_subarray_len(target=target, nums=nums)}")
+    print(f"{min_subarray_len(target=target, nums=nums)}")
 
     target = 4
     nums = [1, 4, 4]
-    # print(f"{min_subarray_len(target=target, nums=nums)}")
+    print(f"{min_subarray_len(target=target, nums=nums)}")
 
     target = 11
     nums = [1, 1, 1, 1, 1, 1, 1, 1]
-    # print(f"{min_subarray_len(target=target, nums=nums)}")
+    print(f"{min_subarray_len(target=target, nums=nums)}")
 
     target = 11
     nums = [1, 2, 3, 4, 5]

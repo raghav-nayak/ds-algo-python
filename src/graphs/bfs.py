@@ -8,9 +8,9 @@ class BFS:
         self._graph = graph
         self._source = source
         self._marked = defaultdict(bool)
-        self._bfs(graph=graph, s=self._source)
+        self._bfs(s=self._source)
 
-    def _bfs(self, graph: Graph, s: int) -> None:
+    def _bfs(self, s: int) -> None:
         self._marked[s] = True
         queue = deque()
         queue.append(s)
