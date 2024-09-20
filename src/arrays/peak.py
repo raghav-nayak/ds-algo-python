@@ -58,7 +58,7 @@ def find_peak_element(nums: List[int]) -> int:
 
     return peak
 
-
+# this is wrong : we should not use Binary search here.
 def find_peak_element_best_solution_leetcode(nums: List[int]) -> int:
     len_nums = len(nums)
     peak = 0
@@ -92,6 +92,6 @@ if __name__ == "__main__":
     print(f"{find_peak_element(nums=nums)}")
     print(f"{find_peak_element_best_solution_leetcode(nums=nums)}")
 
-    nums = [1, 2, 1, 3, 5, 6, 4]
+    nums = [1, 2, 1, 3, 5, 5, 4]
     print(f"{find_peak_element(nums=nums)}")
     print(f"{find_peak_element_best_solution_leetcode(nums=nums)}")
