@@ -30,9 +30,42 @@ def can_construct(target: str, word_bank: List[str]) -> bool:
     return False
 
 
+def can_construct_with_memo(target: str, word_bank: List[str], memo: dict) -> bool:
+    if result := memo.get(target):
+        return result
+
+    if target == "":
+        return True
+
+    for word in word_bank:
+        index = target.find(word)
+        if index == 0:
+            suffix = target[len(word) :]
+            if can_construct_with_memo(suffix, word_bank, memo):
+                memo[target] = True
+                return True
+
+    memo[target] = False
+    return False
+
+
 if __name__ == "__main__":
     print(can_construct("abcdef", ["ab", "abc", "cd", "def", "abcd"]))  # true
     print(can_construct("word", ["bo", "rd", "ate", "t", "ska", "sk", "boar"]))  # false
     print(
         can_construct("enterapotentpot", ["a", "p", "ent", "enter", "ot", "o", "t"])
+    )  # True
+
+    print(
+        can_construct_with_memo("abcdef", ["ab", "abc", "cd", "def", "abcd"], {})
+    )  # true
+    print(
+        can_construct_with_memo(
+            "word", ["bo", "rd", "ate", "t", "ska", "sk", "boar"], {}
+        )
+    )  # false
+    print(
+        can_construct_with_memo(
+            "enterapotentpot", ["a", "p", "ent", "enter", "ot", "o", "t"], {}
+        )
     )  # True
