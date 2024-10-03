@@ -64,19 +64,33 @@ def length_of_last_word_using_sliding_window(s: str) -> int:
     return len(last_word_len)
 
 
+def length_of_last_word_best_soln_leetcode(s: str) -> int:
+    i = len(s) - 1
+    while s[i] == " ":
+        i -= 1
+    x = i
+    while x >= 0 and s[x] != " ":
+        x -= 1
+    return i - x
+
+
 if __name__ == "__main__":
     s = "Hello World"
     print(f"{s=} -> {length_of_last_word_using_sliding_window(s)}")
     print(f"{s=} -> {length_of_last_word_using_inbuilt_function(s)}")
+    print(f"{s=} -> {length_of_last_word_best_soln_leetcode(s)}")
 
     s = "   fly me   to   the moon  "
     print(f"{s=} -> {length_of_last_word_using_sliding_window(s)}")
     print(f"{s=} -> {length_of_last_word_using_inbuilt_function(s)}")
+    print(f"{s=} -> {length_of_last_word_best_soln_leetcode(s)}")
 
     s = "luffy is still joyboy"
     print(f"{s=} -> {length_of_last_word_using_sliding_window(s)}")
     print(f"{s=} -> {length_of_last_word_using_inbuilt_function(s)}")
+    print(f"{s=} -> {length_of_last_word_best_soln_leetcode(s)}")
 
     s = " a"
     print(f"{s=} -> {length_of_last_word_using_sliding_window(s)}")
     print(f"{s=} -> {length_of_last_word_using_inbuilt_function(s)}")
+    print(f"{s=} -> {length_of_last_word_best_soln_leetcode(s)}")
