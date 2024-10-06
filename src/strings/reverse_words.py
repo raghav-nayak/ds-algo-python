@@ -34,9 +34,10 @@
 
 import re
 
+
 def reverse_words_using_inbuilt_func(s: str) -> str:
     # return " ".join(s.split(" ")[-1::-1])
-    return re.sub(r"\s+", " ", " ".join(s.split(" ")[-1::-1])).strip()
+    return re.sub(r"\s+", " ", " ".join(s.split(" ")[::-1])).strip()
 
     # def reverse_word(s: str) -> str:
     #     end = len(s) - 1
@@ -46,6 +47,17 @@ def reverse_words_using_inbuilt_func(s: str) -> str:
     #         if s[end] == " ":
     #             end -= 1
     #         else:
+
+
+def reverse_words_chatgpt(s: str) -> str:
+    # Step 1: Strip leading/trailing spaces and split by spaces
+    words = s.strip().split()
+
+    # Step 2: Reverse the list of words
+    reversed_words = words[::-1]
+
+    # Step 3: Join them back into a string with a single space separator
+    return " ".join(reversed_words)
 
 
 def reverse_words_best_soln_leetcode(s: str) -> str:
@@ -66,12 +78,15 @@ def reverse_words_best_soln_leetcode(s: str) -> str:
 if __name__ == "__main__":
     s = "the sky is blue"
     print(f"{reverse_words_using_inbuilt_func(s)}")
+    print(f"{reverse_words_chatgpt(s)}")
     print(f"{reverse_words_best_soln_leetcode(s)}")
 
     s = "  hello world  "
     print(f"{reverse_words_using_inbuilt_func(s)}")
+    print(f"{reverse_words_chatgpt(s)}")
     print(f"{reverse_words_best_soln_leetcode(s)}")
 
     s = "a good   example"
     print(f"{reverse_words_using_inbuilt_func(s)}")
+    print(f"{reverse_words_chatgpt(s)}")
     print(f"{reverse_words_best_soln_leetcode(s)}")
