@@ -38,24 +38,40 @@ def reverse_words_using_inbuilt_func(s: str) -> str:
     # return " ".join(s.split(" ")[-1::-1])
     return re.sub(r"\s+", " ", " ".join(s.split(" ")[-1::-1])).strip()
 
+    # def reverse_word(s: str) -> str:
+    #     end = len(s) - 1
+    #     reversed_str = str()
 
-# def reverse_word(s: str) -> str:
-#     end = len(s) - 1
-#     reversed_str = str()
+    #     while end >= 0:
+    #         if s[end] == " ":
+    #             end -= 1
+    #         else:
 
-#     while end >= 0:
-#         if s[end] == " ":
-#             end -= 1
-#         else:
+
+def reverse_words_best_soln_leetcode(s: str) -> str:
+    words = s.split()
+
+    l, r = 0, len(words) - 1
+    while l < r:
+        temp = words[l]
+        words[l] = words[r]
+        words[r] = temp
+
+        l += 1
+        r -= 1
+
+    return " ".join(words)
 
 
 if __name__ == "__main__":
     s = "the sky is blue"
     print(f"{reverse_words_using_inbuilt_func(s)}")
+    print(f"{reverse_words_best_soln_leetcode(s)}")
 
     s = "  hello world  "
     print(f"{reverse_words_using_inbuilt_func(s)}")
-    
+    print(f"{reverse_words_best_soln_leetcode(s)}")
 
     s = "a good   example"
     print(f"{reverse_words_using_inbuilt_func(s)}")
+    print(f"{reverse_words_best_soln_leetcode(s)}")
