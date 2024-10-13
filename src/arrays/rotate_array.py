@@ -33,3 +33,19 @@
 
 # Try to come up with as many solutions as you can. There are at least three different ways to solve this problem.
 # Could you do it in-place with O(1) extra space?
+
+
+def rotate_chatgpt(nums, k):
+    n = len(nums)
+    k = k % n  # To handle cases where k > n
+    rotated = [0] * n
+    for i in range(n):
+        rotated[(i + k) % n] = nums[i]
+    nums[:] = rotated  # Copy the rotated array back to nums
+
+
+if __name__ == "__main__":
+    nums = [1, 2, 3, 4, 5, 6, 7]
+    k = 3
+    rotate_chatgpt(nums, 3)
+    print(nums)
