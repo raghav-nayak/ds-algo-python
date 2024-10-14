@@ -35,7 +35,7 @@
 # Could you do it in-place with O(1) extra space?
 
 
-def rotate_chatgpt(nums, k):
+def rotate_chatgpt_1(nums, k):
     n = len(nums)
     k = k % n  # To handle cases where k > n
     rotated = [0] * n
@@ -44,8 +44,33 @@ def rotate_chatgpt(nums, k):
     nums[:] = rotated  # Copy the rotated array back to nums
 
 
+# Reverse the Array (In-place, O(1) space)
+def rotate_chatgpt_2(nums, k):
+    n = len(nums)
+    k = k % n  # To handle cases where k > n
+
+    # Helper function to reverse a portion of the array
+    def reverse(nums, start, end):
+        while start < end:
+            nums[start], nums[end] = nums[end], nums[start]
+            start += 1
+            end -= 1
+
+    # Reverse the whole array
+    reverse(nums, 0, n - 1)
+    # Reverse the first k elements
+    reverse(nums, 0, k - 1)
+    # Reverse the remaining n - k elements
+    reverse(nums, k, n - 1)
+
+
 if __name__ == "__main__":
-    nums = [1, 2, 3, 4, 5, 6, 7]
+    nums_1 = [1, 2, 3, 4, 5, 6, 7]
     k = 3
-    rotate_chatgpt(nums, 3)
-    print(nums)
+    rotate_chatgpt_1(nums_1, 6)
+    print(nums_1)
+
+    nums_2 = [1, 2, 3, 4, 5, 6, 7]
+    k = 3
+    rotate_chatgpt_1(nums_2, 6)
+    print(nums_2)
