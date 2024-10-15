@@ -34,6 +34,8 @@
 # Try to come up with as many solutions as you can. There are at least three different ways to solve this problem.
 # Could you do it in-place with O(1) extra space?
 
+from typing import List
+
 
 def rotate_chatgpt_1(nums, k):
     n = len(nums)
@@ -62,6 +64,20 @@ def rotate_chatgpt_2(nums, k):
     reverse(nums, 0, k - 1)
     # Reverse the remaining n - k elements
     reverse(nums, k, n - 1)
+
+
+def rotate_best_soln_leetcode(nums: List[int], k: int) -> None:
+    """
+    Do not return anything, modify nums in-place instead.
+    """
+    k = k % len(nums)
+    nums[:] = nums[-k:] + nums[:-k]
+
+    with open("user.out", "w") as Solution:
+        for nums, k in zip(map(loads, stdin), map(int, stdin)):
+            rotate(nums, k)
+            Solution.write(f"{nums}\n".replace(" ", ""))
+    exit()
 
 
 if __name__ == "__main__":
