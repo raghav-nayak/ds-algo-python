@@ -121,7 +121,7 @@ def search_range_logN_kkn(nums: List[int], target: int):
     return result
 
 
-def search_range_logN_best_soln_leetcode(
+def search_range_logN_best_soln_leetcode_1(
     self, nums: List[int], target: int
 ) -> List[int]:
     l = 0
@@ -159,6 +159,33 @@ def search_range_logN_best_soln_leetcode(
             l = mid + 1
 
     return [l_lim, r_lim]
+
+
+def search_range_logN_best_soln_leetcode_1(
+    self, nums: List[int], target: int
+) -> List[int]:
+    def binary(is_left):
+        l = 0
+        r = len(nums) - 1
+        index = -1
+        while l <= r:
+            mid = l + ((r - l) // 2)
+            if nums[mid] > target:
+                r = mid - 1
+            elif nums[mid] < target:
+                l = mid + 1
+            else:
+                index = mid
+                if is_left:
+                    r = mid - 1
+                else:
+                    l = mid + 1
+
+        return index
+
+    left = binary(True)
+    right = binary(False)
+    return [left, right]
 
 
 if __name__ == "__main__":
