@@ -36,6 +36,7 @@
 
 from typing import List
 
+
 # using two pointers
 def two_sum(numbers: List[int], target: int) -> List[int]:
     if len(numbers) < 2:
@@ -47,7 +48,7 @@ def two_sum(numbers: List[int], target: int) -> List[int]:
     while start < end:
         sum = numbers[start] + numbers[end]
         if sum == target:
-            return [start+1, end+1]
+            return [start + 1, end + 1]
         elif sum < target:
             start += 1
         else:
@@ -56,15 +57,28 @@ def two_sum(numbers: List[int], target: int) -> List[int]:
     return [-1, -1]
 
 
+def two_sum_best_soln_leetcode(numbers: List[int], target: int) -> List[int]:
+    start, end = 0, len(numbers) - 1
+
+    while start <= end:
+        sum = numbers[start] + numbers[end]
+        if sum == target:
+            return [start + 1, end + 1]
+        elif sum > target:
+            end -= 1
+        else:
+            start += 1
+
+
 if __name__ == "__main__":
     numbers = [2, 7, 11, 15]
     target = 9
     print(two_sum(numbers, target))
-    
-    numbers = [2,3,4]
+
+    numbers = [2, 3, 4]
     target = 6
     print(two_sum(numbers, target))
-    
-    numbers = [-1,0]
+
+    numbers = [-1, 0]
     target = -1
     print(two_sum(numbers, target))
