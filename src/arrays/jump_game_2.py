@@ -22,8 +22,67 @@
 # 0 <= nums[i] <= 1000
 # It's guaranteed that you can reach nums[n - 1].
 
+from time import sleep
 from typing import List
 
+# partial
+def jump(nums: List[int]) -> int:
+    i = 0
+    step = 0
+    while i < len(nums):
+        j = nums[i]
+        print(f"{i=} {nums[i]} {j=}")
+        if i + j >= len(nums) - 1:
+            step += 1
+            return step
 
-def jump(self, nums: List[int]) -> int:
-    pass
+        k = 1
+        max = -1
+        index = -1
+        while k <= j and k < len(nums):
+            # print(f"{k=} {max=}")
+            if nums[i + k] > max:
+                max = nums[k]
+                index = k
+            k += 1
+        print(f"{max=}")
+        i = index
+        step += 1
+        sleep(1)
+    return step
+
+
+def jump_kkn(nums: List[int]) -> int:
+    nums_len = len(nums)
+    if nums_len <= 1:
+        return 0
+
+    curr_end = 0
+    last_element = 0
+    no_of_jumps_required = 0
+    for idx in range(0, nums_len):
+        last_element = max(last_element, nums[idx] + idx)
+        if curr_end == idx:
+            no_of_jumps_required += 1
+            curr_end = last_element
+            if curr_end >= nums_len - 1:
+                break
+
+    return no_of_jumps_required
+
+
+if __name__ == "__main__":
+    nums = [2, 3, 1, 1, 4]
+    # print(jump(nums)) # 2
+
+    nums = [2, 3, 0, 1, 4]
+    # print(jump(nums)) # 2
+
+    nums = [3, 4, 3, 2, 5, 4, 3]
+    # print(jump(nums)) # 3
+
+    nums = [4, 1, 1, 3, 1, 1, 1]
+    # print(jump(nums)) # 2
+
+    nums = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1, 0]
+    print(jump_kkn(nums))
