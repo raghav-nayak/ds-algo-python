@@ -24,3 +24,6 @@
 # 0 <= n <= 104
  
 # Follow up: Could you write a solution that works in logarithmic time complexity?
+
+def trailingZeroes(self, n: int) -> int:
+    pass
