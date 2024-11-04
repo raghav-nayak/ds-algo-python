@@ -19,11 +19,45 @@
 # Example 3:
 # Input: n = 0
 # Output: 0
- 
+
 # Constraints:
 # 0 <= n <= 104
- 
+
 # Follow up: Could you write a solution that works in logarithmic time complexity?
 
-def trailingZeroes(self, n: int) -> int:
-    pass
+
+memo = dict()
+
+
+def factorial_n(n: int) -> int:
+    if n <= 1:
+        return 1
+    if result := memo.get(n):
+        return result
+
+    memo[n] = n * factorial_n(n - 1)
+    return memo[n]
+
+
+def trailingZeroes(n: int) -> int:
+    factorial = factorial_n(n)
+    print(f"{factorial=}")
+    count = 0
+    # while factorial > 0:
+    #     print(f"Inside while {factorial=}")
+    #     rem = factorial % 10
+    #     if rem != 0:
+    #         break
+    #     count += 1
+    #     factorial = factorial / 10
+    
+    factorial_str = str()
+    return count
+
+
+if __name__ == "__main__":
+    print(trailingZeroes(3))
+    print(trailingZeroes(5))
+    print(trailingZeroes(0))
+    print(trailingZeroes(13))
+    print(trailingZeroes(30))
