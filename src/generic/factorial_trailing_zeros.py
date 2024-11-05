@@ -61,12 +61,12 @@ def trailingZeroes(n: int) -> int:
 
 
 # ChatGPT approach
-# The problem of counting the number of trailing zeroes in n! (the factorial of n) can be solved efficiently 
-# by considering the factors of 10 in n!. Each trailing zero in the factorial result is produced by a factor of 
+# The problem of counting the number of trailing zeroes in n! (the factorial of n) can be solved efficiently
+# by considering the factors of 10 in n!. Each trailing zero in the factorial result is produced by a factor of
 # 10, which is the product of 2 and 5.
 
 # Key Insight:
-# In any factorial, there are always more factors of 2 than factors of 5, so the number of trailing zeroes is 
+# In any factorial, there are always more factors of 2 than factors of 5, so the number of trailing zeroes is
 # determined by how many factors of 5 are present in the numbers from 1 to n.
 
 # e.g. In the numbers from 1 to 5:
@@ -76,7 +76,7 @@ def trailingZeroes(n: int) -> int:
 # Approach:
 # To find the number of trailing zeroes in n!, we
 # 1. Count how many multiples of 5 are in the numbers from 1 to n.
-# 2. Count how many multiples of 25, 125, and so on are in the numbers from 1 to n, because they contribute 
+# 2. Count how many multiples of 25, 125, and so on are in the numbers from 1 to n, because they contribute
 # additional factors of 5.
 
 
@@ -89,11 +89,11 @@ def trailingZeroes_chat_gpt(n: int) -> int:
 
 
 if __name__ == "__main__":
-    print(trailingZeroes(3))
-    print(trailingZeroes(5))
-    print(trailingZeroes(0))
-    print(trailingZeroes(13))
-    print(trailingZeroes(30))
-    # print(trailingZeroes(1574)) # failing
+    print(trailingZeroes(3)) # 0
+    print(trailingZeroes(5)) # 1
+    print(trailingZeroes(0)) # 0 
+    print(trailingZeroes(13)) # 2
+    print(trailingZeroes(30)) # 7
+    # print(trailingZeroes(1574)) # failing - RecursionError: maximum recursion depth exceeded
 
-    print(trailingZeroes_chat_gpt(15744))
+    print(trailingZeroes_chat_gpt(1574))  # 390
