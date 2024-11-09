@@ -62,12 +62,12 @@ def convert_chatgpt(s: str, numRows: int) -> str:
 if __name__ == "__main__":
     s = "PAYPALISHIRING"
     numRows = 3
-    print(convert(s, numRows))
-    
+    print(convert_chatgpt(s, numRows))
+
     s = "PAYPALISHIRING"
     numRows = 4
-    print(convert(s, numRows))
+    print(convert_chatgpt(s, numRows))
 
     s = "A"
     numRows = 1
-    print(convert(s, numRows))
+    print(convert_chatgpt(s, numRows))
