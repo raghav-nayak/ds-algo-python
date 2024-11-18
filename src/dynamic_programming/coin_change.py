@@ -28,5 +28,48 @@
 
 from typing import List
 
-def coin_change(coins: List[int], amount: int) -> int:
-    pass
+# def coin_change(coins: List[int], amount: int, count: int) -> int:
+#     if amount <= 0:
+#         return 0
+
+#     # for index, value in enumerate(coins):
+#     #     remainder = amount - value
+#     #     remainder_result = coin_change(coins, remainder)
+#     #     if remainder_result != 0:
+#     #         remainder_result.append(value)
+#     #         return len(remainder_result)
+#     # return -1
+
+#     for coin in coins:
+#         if coin < amount:
+#             coin_change(coins, amount - coin, count + 1)
+
+
+def coin_change_chatgpt(coins: List[int], amount: int) -> int:
+    # Initialize dp array with a large value
+    dp = [amount + 1] * (amount + 1)
+    dp[0] = 0  # Base case: 0 coins to make amount 0
+
+    # Fill the dp array
+    for amount_index in range(1, amount + 1):
+        for coin in coins:
+            remainder_amount = amount_index - coin
+            if remainder_amount >= 0:
+                dp[amount_index] = min(dp[amount_index], dp[remainder_amount] + 1)
+
+    # Check if amount can be made up
+    return dp[amount] if dp[amount] != amount + 1 else -1
+
+
+if __name__ == "__main__":
+    coins = [1, 2, 5]
+    amount = 11
+    print(coin_change_chatgpt(coins, amount))
+
+    coins = [2]
+    amount = 3
+    print(coin_change_chatgpt(coins, amount))
+
+    coins = [1]
+    amount = 0
+    print(coin_change_chatgpt(coins, amount))
