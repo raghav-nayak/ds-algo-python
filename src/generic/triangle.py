@@ -32,3 +32,8 @@
 
 
 # Follow up: Could you do this using only O(n) extra space, where n is the total number of rows in the triangle?
+
+from typing import List
+
+def minimum_total(triangle: List[List[int]]) -> int:
+    pass
