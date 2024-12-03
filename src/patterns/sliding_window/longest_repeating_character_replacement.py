@@ -25,5 +25,5 @@
 # 0 <= k <= s.length
 
 
-def characterReplacement(self, s: str, k: int) -> int:
+def character_replacement(s: str, k: int) -> int:
     pass
