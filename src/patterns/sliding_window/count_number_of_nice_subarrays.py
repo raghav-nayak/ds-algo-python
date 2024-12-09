@@ -71,8 +71,6 @@ def number_of_subarrays_kkn(nums: List[int], k: int) -> int:
     return subarray_count
 
 
-from collections import defaultdict
-from typing import List
 
 
 def number_of_subarrays_kkn_chatgpt_corrected(nums: List[int], k: int) -> int:
