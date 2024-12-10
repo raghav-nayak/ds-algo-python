@@ -71,8 +71,6 @@ def number_of_subarrays_kkn(nums: List[int], k: int) -> int:
     return subarray_count
 
 
-
-
 def number_of_subarrays_kkn_chatgpt_corrected(nums: List[int], k: int) -> int:
     odd_num_count = 0
     subarray_count = 0
@@ -84,7 +82,7 @@ def number_of_subarrays_kkn_chatgpt_corrected(nums: List[int], k: int) -> int:
             odd_num_count += 1
 
         # Check if there is a valid subarray with `k` odd numbers
-        if odd_num_count - k in frequency:
+        if odd_num_count - k >= 0 and odd_num_count - k in frequency:
             subarray_count += frequency[odd_num_count - k]
 
         # Increment the count of subarrays with the current odd number count
