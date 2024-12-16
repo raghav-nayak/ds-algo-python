@@ -22,13 +22,14 @@
 # Input: root = [], targetSum = 0
 # Output: false
 # Explanation: Since the tree is empty, there are no root-to-leaf paths.
- 
+
 # Constraints:
 # The number of nodes in the tree is in the range [0, 5000].
 # -1000 <= Node.val <= 1000
 # -1000 <= targetSum <= 1000
 
 from typing import Optional
+
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -37,5 +38,39 @@ class TreeNode:
         self.left = left
         self.right = right
 
-def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
-    pass
+
+# partial
+def has_path_sum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+    if not root:
+        return False
+
+    found = False
+    remainder = targetSum - root.val
+    if remainder == 0:
+        return True
+
+    if remainder < 0:
+        return False
+
+    if root.left:
+        found = self.hasPathSum(root.left, remainder)
+
+    if not found and root.right:
+        found = self.hasPathSum(root.right, remainder)
+
+    return found
+
+
+def has_path_sum_chatgpt(self, root: Optional[TreeNode], targetSum: int) -> bool:
+    # Base case: if the root is None, there's no path
+    if not root:
+        return False
+
+    # If the current node is a leaf, check if the remaining targetSum matches its value
+    if not root.left and not root.right:
+        return targetSum == root.val
+
+    # Recursively check left and right subtrees with the updated targetSum
+    return self.hasPathSum(root.left, targetSum - root.val) or self.hasPathSum(
+        root.right, targetSum - root.val
+    )
