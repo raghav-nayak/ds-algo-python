@@ -40,7 +40,7 @@ class TreeNode:
 
 
 # partial
-def has_path_sum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+def has_path_sum(root: Optional[TreeNode], targetSum: int) -> bool:
     if not root:
         return False
 
@@ -53,15 +53,15 @@ def has_path_sum(self, root: Optional[TreeNode], targetSum: int) -> bool:
         return False
 
     if root.left:
-        found = self.hasPathSum(root.left, remainder)
+        found = has_path_sum(root.left, remainder)
 
     if not found and root.right:
-        found = self.hasPathSum(root.right, remainder)
+        found = has_path_sum(root.right, remainder)
 
     return found
 
 
-def has_path_sum_chatgpt(self, root: Optional[TreeNode], targetSum: int) -> bool:
+def has_path_sum_chatgpt(root: Optional[TreeNode], targetSum: int) -> bool:
     # Base case: if the root is None, there's no path
     if not root:
         return False
@@ -71,6 +71,6 @@ def has_path_sum_chatgpt(self, root: Optional[TreeNode], targetSum: int) -> bool
         return targetSum == root.val
 
     # Recursively check left and right subtrees with the updated targetSum
-    return self.hasPathSum(root.left, targetSum - root.val) or self.hasPathSum(
+    return has_path_sum_chatgpt(root.left, targetSum - root.val) or has_path_sum_chatgpt(
         root.right, targetSum - root.val
     )
