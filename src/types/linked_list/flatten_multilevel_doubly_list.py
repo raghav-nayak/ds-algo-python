@@ -67,6 +67,5 @@ class Node:
         self.child = child
 
 
-class Solution:
-    def flatten(self, head: "Optional[Node]") -> "Optional[Node]":
-        pass
+def flatten(self, head: "Optional[Node]") -> "Optional[Node]":
+    pass
