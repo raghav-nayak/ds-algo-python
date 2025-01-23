@@ -12,7 +12,7 @@
 #  [[1,0,1],[0,0,0],[1,0,1]]
 
 # Explanation:
-#  Since matrix[2][2]=0.Therfore the 2nd column and 2nd row wil be set to 0.
+#  Since matrix[2][2]=0.Therefore the 2nd column and 2nd row wil be set to 0.
  
 # Input:
 #  matrix=[[0,1,2,0],[3,4,5,2],[1,3,1,5]]
